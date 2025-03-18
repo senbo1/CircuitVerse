@@ -1,13 +1,20 @@
 <div class="container navbar-search-container">
   <div class="row center-row">
-  <%= form_tag("/search", method: "get", id: "search-box", class: "navbar-search-bar-form") do %>
-    <%= select_tag :resource, options_for_select(%w[Users Projects], selected: params[:resource]), class: "navbar-search-bar-select", id: "search_type", onchange: "changePlaceholder()" %>
-    <%= text_field_tag :q, params[:q], placeholder: "Search for projects or users", autocomplete: "off", class: "form-control form-input navbar-search-bar-input" %>
-    <button class="btn primary-button navbar-search-bar-button" type="submit" name="button" value="Submit">Search</button>
-  <% end %>
+    <%= form_tag("/search", method: "get", id: "search-box", class: "navbar-search-bar-form") do %>
+      <%= select_tag :resource, options_for_select(%w[Users Projects], selected: params[:resource]), class: "navbar-search-bar-select", id: "search_type", onchange: "changePlaceholder()" %>
+      <%= text_field_tag :q, params[:q], placeholder: "Search for projects or users", autocomplete: "off", class: "form-control form-input navbar-search-bar-input" %>
+      <%= select_tag :sort_by, options_for_select([
+        ["Newest First", "date_desc"],
+        ["Oldest First", "date_asc"],
+        ["Most Viewed", "views_desc"],
+        ["Least Viewed", "views_asc"],
+        ["Most Starred", "stars_desc"],
+        ["Least Starred", "stars_asc"]
+        ], selected: params[:sort_by]), class: "navbar-search-bar-select", id: "sort_by" %>
+      <button class="btn primary-button navbar-search-bar-button" type="submit" name="button" value="Submit">Search</button>
+    <% end %>
   </div>
 </div>
-
 <script>
   function changePlaceholder() {
     var selectElement = document.getElementById('search_type');
