@@ -1,5 +1,5 @@
 class AddStarsCountToProjects < ActiveRecord::Migration[7.0]
-  def change
+  def up
     add_column :projects, :stars_count, :integer, default: 0, null: false
 
     Project.find_each do |project|
