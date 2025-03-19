@@ -3,10 +3,19 @@
 class ProjectsQuery < GenericQuery
   attr_reader :relation
 
+  SORT_OPTIONS = {
+    "date_desc" => { created_at: :desc },
+    "date_asc" => { created_at: :asc },
+    "views_desc" => { view: :desc },
+    "views_asc" => { view: :asc },
+    "stars_desc" => { stars_count: :desc },
+    "stars_asc" => { stars_count: :asc }
+  }.freeze
+
   def initialize(query_params, relation = Project.all)
     @relation = relation.includes(:author, :tags)
     @sort_by = query_params[:sort_by]
-    super query_params, @relation
+    super(query_params, @relation)
   end
 
   def results
@@ -15,22 +24,7 @@ class ProjectsQuery < GenericQuery
 
   private
 
-  def apply_sorting(results, sort_by)
-    case sort_by
-    when "date_desc"
-      results.order(created_at: :desc)
-    when "date_asc"
-      results.order(created_at: :asc)
-    when "views_desc"
-      results.order(view: :desc)
-    when "views_asc"
-      results.order(view: :asc)
-    when "stars_desc"
-      results.order(stars_count: :desc)
-    when "stars_asc"
-      results.order(stars_count: :asc)
-    else
-      results.order(created_at: :desc)
+    def apply_sorting(results, sort_by)
+      results.order(SORT_OPTIONS[sort_by] || { created_at: :desc })
     end
-  end
 end
