@@ -1,0 +1,21 @@
+ar:
+  layout:
+    link_to_simulator: 'محاكي'
+    link_to_learn_more: 'تعلم المزيد'
+    link_to_blog: 'مدونة'
+    link_to_docs: 'توثيق'
+    link_to_teachers: 'للمعلمين'
+    link_to_about: 'عنا'
+    api: 'API'
+    link_to_faq: 'الأسئلة الشائعة'
+
+    footer:
+      social_icon_text: 'تابعنا على وسائل التواصل الاجتماعي'
+      sponsor_logo_text:
+        incubated_from: 'محتضنة من'
+        infrastructure_sponsor: 'راعي البنية التحتية'
+      copyright_text: 'حقوق النشر © %{time_current_year} CircuitVerse. جميع الحقوق محفوظة.'
+      link_to_examples: 'أمثلة'
+      my_circuits: 'دوائري'
+      link_to_contribute: 'ساهم'
+      link_to_forum: 'منتدى'
