@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_20_082634) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_18_162302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -367,6 +367,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_20_082634) do
     t.tsvector "searchable"
     t.string "lis_result_sourced_id"
     t.string "version", default: "1.0", null: false
+    t.integer "stars_count", default: 0, null: false
     t.index ["assignment_id"], name: "index_projects_on_assignment_id"
     t.index ["author_id"], name: "index_projects_on_author_id"
     t.index ["forked_project_id"], name: "index_projects_on_forked_project_id"

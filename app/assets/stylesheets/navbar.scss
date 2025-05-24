@@ -188,6 +188,12 @@
   border-radius: 4px;
 }
 
+.sort-by-dropdown {
+  @extend .navbar-search-bar-select;
+  max-width: 150px;
+  min-width: 150px;
+}
+
 .dropdown-menu {
   border: 0;
   box-shadow: 0 0 10px 1px $shadow-grey;
@@ -216,7 +222,7 @@
   }
 
   .navbar-search-bar-select {
-    width: 50px;
+    width: 100px;
   }
 }
 
